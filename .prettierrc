@@ -1,0 +1,14 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "endOfLine": "lf",
+  "vueIndentScriptAndStyle": true,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "css",
+  "requirePragma": false,
+  "singleAttributePerLine": true
+}
