@@ -1,0 +1,55 @@
+/* Transiciones suaves para todos los elementos */
+* {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+:root {
+  /* Default (light mode fallback) */
+  --color-text: #111827;
+  --color-bg: #ffffff;
+  --btn-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --gradient: linear-gradient(
+    to right,
+    #3b82f6,
+    #8b5cf6
+  ); /* azul por defecto */
+  --pill-badge: rgba(59, 130, 246, 0.1); /* azul */
+}
+
+/* ================= BLUE THEME ================= */
+[data-theme='blue'] {
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-secondary: #8b5cf6; /* purple-500 */
+  --btn-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
+  --gradient: linear-gradient(to right, #3b82f6, #8b5cf6);
+  --pill-badge: rgba(59, 130, 246, 0.1);
+}
+
+/* ================= GREEN THEME ================= */
+[data-theme='green'] {
+  --color-primary: #10b981; /* emerald-500 */
+  --color-secondary: #06b6d4; /* cyan-500 */
+  --btn-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);
+  --gradient: linear-gradient(to right, #10b981, #06b6d4);
+  --pill-badge: rgba(16, 185, 129, 0.1);
+}
+
+/* ================= PURPLE THEME ================= */
+[data-theme='purple'] {
+  --color-primary: #8b5cf6; /* purple-500 */
+  --color-secondary: #ec4899; /* pink-500 */
+  --btn-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+  --gradient: linear-gradient(to right, #8b5cf6, #ec4899);
+  --pill-badge: rgba(139, 92, 246, 0.1);
+}
+
+/* ================= ORANGE THEME ================= */
+[data-theme='orange'] {
+  --color-primary: #f97316; /* orange-600 */
+  --color-secondary: #ec4899; /* pink-500 */
+  --btn-shadow: 0 4px 15px rgba(249, 115, 22, 0.5);
+  --gradient: linear-gradient(to right, #f97316, #ec4899);
+  --pill-badge: rgba(249, 115, 22, 0.1);
+}

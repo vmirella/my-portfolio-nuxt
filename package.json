@@ -9,12 +9,30 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "commit": "cz",
-    "prepare": "husky",
-      "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "lint:fix": "eslint --ext .js,.ts,.vue . --fix",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "analyze": "nuxt analyze"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
-    "nuxt": "^4.0.3",
+    "@iconify/vue": "^5.0.0",
+    "@pinia/nuxt": "^0.11.2",
+    "@vueuse/nuxt": "^13.9.0",
+    "gsap": "^3.13.0",
+    "nuxt": "^4.1.1",
     "vue": "^3.5.20",
     "vue-router": "^4.5.1"
   },
@@ -23,16 +41,39 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@nuxt/eslint-config": "^1.9.0",
-    "@nuxt/image": "^1.11.0",
     "@nuxt/kit": "^4.1.0",
+    "@nuxt/test-utils": "^3.19.2",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/seo": "^3.1.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@oxc-parser/binding-darwin-x64": "^0.98.0",
+    "@oxc-transform/binding-darwin-x64": "^0.98.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^24.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "@vue/test-utils": "^2.4.6",
+    "autoprefixer": "^10.4.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.4.0",
+    "happy-dom": "^18.0.1",
     "husky": "^9.1.7",
-    "typescript": "^5.9.2"
+    "lint-staged": "^16.1.6",
+    "postcss": "^8.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "sass": "^1.92.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2",
+    "vite-plugin-checker": "0.11.0",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.6"
   },
   "config": {
     "commitizen": {
