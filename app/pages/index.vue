@@ -3,8 +3,8 @@
     <main>
       <HeroSection />
       <AboutSection />
-      <!-- <ExperienceSection />
-      <SkillsSection />
+      <ExperienceSection />
+      <!-- <SkillsSection />
       <ProjectsSection /> -->
     </main>
   </div>
