@@ -4,8 +4,8 @@
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
-      <!-- <SkillsSection />
-      <ProjectsSection /> -->
+      <SkillsSection />
+      <!-- <ProjectsSection /> -->
     </main>
   </div>
 </template>
