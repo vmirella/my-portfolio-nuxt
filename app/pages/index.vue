@@ -2,8 +2,8 @@
   <div>
     <main>
       <HeroSection />
-      <!-- <AboutSection />
-      <ExperienceSection />
+      <AboutSection />
+      <!-- <ExperienceSection />
       <SkillsSection />
       <ProjectsSection /> -->
     </main>
