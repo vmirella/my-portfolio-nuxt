@@ -5,7 +5,7 @@
       <AboutSection />
       <ExperienceSection />
       <SkillsSection />
-      <!-- <ProjectsSection /> -->
+      <ProjectsSection />
     </main>
   </div>
 </template>
