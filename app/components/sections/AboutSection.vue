@@ -59,8 +59,8 @@
           </div>
 
           <BaseButton
-            href="/cv/Virginia-Contreras_CV.pdf"
-            download
+            :href="cvUrl"
+            download="Virginia_Contreras_CV.pdf"
             variant="primary"
             size="lg"
           >
@@ -91,4 +91,8 @@
 
 <script setup lang="ts">
   import { Icon as IconifyIcon } from '@iconify/vue'
+
+  const cvUrl = computed(() => {
+    return `/cv/Virginia_Contreras_CV.pdf?t=${Date.now()}`
+  })
 </script>
