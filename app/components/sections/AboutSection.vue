@@ -76,7 +76,7 @@
             :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=vmirella&layout=donut&locale=es&hide_title=true&show_icons=true`"
           />
           <div class="mt-4 flex items-center justify-center text-secondary">
-            <span class="mr-2">Lenguajes más usados </span>
+            <span class="mr-2">Lenguajes más usados en Github </span>
             <IconifyIcon
               icon="mdi:github"
               height="20"

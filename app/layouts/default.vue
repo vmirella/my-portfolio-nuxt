@@ -6,9 +6,9 @@
     <main>
       <slot />
     </main>
-    <!-- <TheFooter :socialNetworks="socialNetworks" /> -->
+    <TheFooter :social-networks="socialNetworks" />
   </div>
 </template>
-<!-- <script setup>
+<script setup>
   import { socialNetworks } from '~/data/socialNetworks'
-</script> -->
+</script>
