@@ -1,8 +1,10 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  ssr: true,
   nitro: {
     sourceMap: true,
+    preset: 'static',
     output: {
       dir: '.output',
       serverDir: '.output/server',
@@ -11,6 +13,15 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: 'Virginia Contreras - Portfolio',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       script: [
         {
           type: 'text/javascript',
@@ -39,6 +50,8 @@ export default defineNuxtConfig({
         },
       ],
     },
+    baseURL: '/',
+    buildAssetsDir: '/_nuxt/',
   },
   compatibilityDate: '2025-09-11',
   components: [
@@ -49,6 +62,8 @@ export default defineNuxtConfig({
     },
   ],
   modules: [
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@pinia/nuxt',
@@ -66,6 +81,26 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  site: {
+    indexable: process.env.NODE_ENV === 'production',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://virginiacontreras.com',
+  },
+  robots: {
+    groups: [
+      {
+        userAgent: '*',
+        allow: process.env.NODE_ENV === 'production' ? ['/'] : [],
+        disallow: process.env.NODE_ENV === 'production' ? [] : ['/'],
+      },
+    ],
+  },
+  sitemap: {
+    enabled: true,
+    sources: [
+      '/api/sitemap', // opcional si luego quieres generar rutas dinámicas
+    ],
+    strictNuxtContentPaths: false,
+  },
   // Runtime configuration
   runtimeConfig: {
     public: {
