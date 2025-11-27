@@ -2,6 +2,8 @@
 
 Portfolio personal moderno y responsivo construido con **Nuxt 4** y **Tailwind CSS 3**, optimizado para rendimiento y SEO.
 
+[virginiacontreras.vercel.app](https://virginiacontreras.vercel.app)
+
 ## ✨ Características
 
 - 🎨 **Diseño Moderno**: Interfaz limpia y profesional con animaciones suaves
