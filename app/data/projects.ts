@@ -47,6 +47,6 @@ export const projects: Project[] = [
     technologies: ['React', 'Reactstrap'],
     image: '/images/carnet-download.png',
     githubUrl: 'https://github.com/vmirella/reto-divemotors',
-    demoUrl: 'mirella.github.io/reto-divemotors/',
+    demoUrl: 'https://vmirella.github.io/reto-divemotors/',
   },
 ]
