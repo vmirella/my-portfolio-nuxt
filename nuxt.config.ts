@@ -1,25 +1,31 @@
-import { defineNuxtConfig } from 'nuxt/config'
-
 export default defineNuxtConfig({
+  // SSR habilitado (correcto para Vercel)
   ssr: true,
+
+  // Configuración de Nitro para Vercel
   nitro: {
-    sourceMap: true,
-    preset: 'static',
-    output: {
-      dir: '.output',
-      serverDir: '.output/server',
-      publicDir: '.output/public',
-    },
+    preset: process.env.VERCEL ? 'vercel' : 'node-server',
+    sourceMap: process.env.NODE_ENV === 'development',
+    compressPublicAssets: true,
   },
+
+  // Configuración de la app
   app: {
     head: {
       title: 'Virginia Contreras - Portfolio',
+      htmlAttrs: {
+        lang: 'es', // ✨ Agregar idioma
+      },
       meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
             'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
         },
+        // ✨ Meta tags adicionales para SEO
+        { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       script: [
@@ -47,13 +53,17 @@ export default defineNuxtConfig({
               }
             })();
           `,
+          // ✨ Cambio importante: innerHTML -> children en Nuxt 4
+          tagPosition: 'head',
         },
       ],
     },
-    baseURL: '/',
-    buildAssetsDir: '/_nuxt/',
   },
-  compatibilityDate: '2025-09-11',
+
+  // ✨ Fecha de compatibilidad actualizada
+  compatibilityDate: '2025-01-26',
+
+  // Configuración de componentes
   components: [
     {
       path: '~/components',
@@ -61,31 +71,30 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+
+  // Módulos
   modules: [
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    [
-      '@nuxtjs/seo',
-      {
-        site: {
-          url:
-            process.env.NUXT_PUBLIC_SITE_URL || 'https://virginiacontreras.com',
-          name: 'Virginia Contreras - Desarrolladora Frontend',
-          description:
-            'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
-          defaultLocale: 'es',
-        },
-      },
-    ],
+    '@nuxtjs/seo',
   ],
+
+  // ✨ Configuración SEO simplificada (Nuxt 4 style)
   site: {
+    url:
+      process.env.NUXT_PUBLIC_SITE_URL ||
+      'https://virginiacontreras.vercel.app',
+    name: 'Virginia Contreras - Desarrolladora Frontend',
+    description:
+      'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
+    defaultLocale: 'es',
     indexable: process.env.NODE_ENV === 'production',
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://virginiacontreras.com',
   },
+
+  // Robots
   robots: {
+    enabled: process.env.NODE_ENV === 'production',
     groups: [
       {
         userAgent: '*',
@@ -94,57 +103,94 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  // Sitemap
   sitemap: {
-    enabled: true,
-    sources: [
-      '/api/sitemap', // opcional si luego quieres generar rutas dinámicas
-    ],
+    enabled: process.env.NODE_ENV === 'production',
     strictNuxtContentPaths: false,
   },
+
   // Runtime configuration
   runtimeConfig: {
     public: {
       siteUrl:
-        process.env.NUXT_PUBLIC_SITE_URL || 'https://virginiacontreras.com',
+        process.env.NUXT_PUBLIC_SITE_URL ||
+        'https://virginiacontreras.vercel.app',
     },
   },
-  // Configuración para desarrollo
-  devtools: { enabled: process.env.NODE_ENV === 'development' },
+
+  // Devtools
+  devtools: {
+    enabled: process.env.NODE_ENV === 'development',
+  },
+
   // TypeScript
   typescript: {
     typeCheck: true,
     strict: true,
+    shim: false, // ✨ Recomendado para Nuxt 4
   },
+
   // Configuración de build
   build: {
     transpile: ['gsap'],
-    // Evitar generación excesiva en dev
-    analyze: false,
   },
+
+  // CSS
   css: ['@/assets/css/themes.css', '@/assets/css/main.css'],
-  // Deshabilitar features que generan archivos extra
+
+  // Features
   features: {
-    devLogs: false,
+    devLogs: process.env.NODE_ENV === 'development',
   },
-  // Configuración de Vite para desarrollo
+
+  // ✨ Configuración de Vite optimizada
   vite: {
     build: {
-      // Menos verboso en desarrollo
       minify: 'esbuild',
-      sourcemap: true,
-    },
-    optimizeDeps: {
-      esbuildOptions: {
-        // 👉 Forzar que siempre use esbuild en vez de oxc
-        supported: {
-          'import-assertions': true,
+      sourcemap: process.env.NODE_ENV === 'development',
+      // ✨ Mejor optimización para producción
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            gsap: ['gsap'],
+          },
         },
       },
+    },
+    optimizeDeps: {
+      include: ['gsap'], // ✨ Pre-bundle GSAP
     },
     server: {
       fs: {
         strict: false,
       },
+    },
+  },
+
+  // ✨ Configuración de módulos específicos
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    configPath: 'tailwind.config',
+    exposeConfig: false,
+    viewer: false, // ✨ Deshabilitar en producción
+  },
+
+  // ✨ Configuración de Pinia
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
+
+  // ✨ Configuración de experimentales (opcional pero recomendado)
+  experimental: {
+    payloadExtraction: true, // Mejora performance
+    componentIslands: false, // Solo si lo necesitas
+  },
+
+  // ✨ Hooks útiles para debugging
+  hooks: {
+    'build:done': () => {
+      console.log('✅ Build completado exitosamente')
     },
   },
 })

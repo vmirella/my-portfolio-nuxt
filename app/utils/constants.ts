@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   title: 'Virginia Contreras - Desarrolladora Frontend',
   description:
     'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
-  url: 'https://virginiacontreras.com',
+  url: 'https://virginiacontreras.vercel.app',
   author: 'Virginia Contreras',
   email: 'virginiacontrerasvillafuerte@gmail.com',
   location: 'Lima, Perú',
