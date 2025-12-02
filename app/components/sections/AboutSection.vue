@@ -73,7 +73,7 @@
             width="600"
             class="flex w-auto justify-center"
             align="center"
-            :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=vmirella&layout=donut&locale=es&hide_title=true&show_icons=true`"
+            :src="githubStats"
           />
           <div class="mt-4 flex items-center justify-center text-secondary">
             <span class="mr-2">Lenguajes más usados en Github </span>
@@ -94,5 +94,9 @@
 
   const cvUrl = computed(() => {
     return `/cv/Virginia_Contreras_CV.pdf?t=${Date.now()}`
+  })
+
+  const githubStats = computed(() => {
+    return 'https://github-readme-stats-sage-six-40.vercel.app/api/top-langs/?username=vmirella&layout=donut&locale=es&hide_title=true&show_icons=true'
   })
 </script>
