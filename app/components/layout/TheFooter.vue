@@ -31,7 +31,7 @@
           <div
             class="w-full border-t border-gray-700 pt-4 text-center text-sm text-gray-400"
           >
-            <p>© 2025 Virginia Contreras. Todos los derechos reservados.</p>
+            <p>© 2026 Virginia Contreras. Todos los derechos reservados.</p>
           </div>
         </div>
       </div>
