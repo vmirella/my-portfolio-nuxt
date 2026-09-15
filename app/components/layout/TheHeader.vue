@@ -1,59 +1,74 @@
+```vue
 <template>
   <header
     :class="[
-      'fixed left-0 right-0 top-0 z-50 border-b border-transparent backdrop-blur-md transition-all duration-300',
-      isScrolled
-        ? 'border-white/10 bg-white/90 py-2 shadow-md dark:bg-slate-900/90'
-        : 'bg-white/80 py-4 dark:bg-slate-900/80',
+      'theme-header fixed left-0 right-0 top-0 z-50 border-b border-transparent backdrop-blur-md transition-all duration-300',
+      isScrolled ? 'theme-header-scrolled py-2' : 'py-4',
     ]"
   >
-    <nav class="container mx-auto flex items-center justify-between px-6">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12"
+      aria-label="Navegación principal"
+    >
       <!-- Logo -->
-      <div class="text-xl font-bold text-slate-900 dark:text-white">
-        Virginia <span class="text-primary">Contreras</span>
-      </div>
+      <NuxtLink
+        to="/"
+        class="theme-text-primary theme-focus rounded-md px-1 text-xl font-bold"
+        aria-label="Virginia Contreras - Inicio"
+      >
+        <span class="font-heading">VC</span>
+      </NuxtLink>
 
-      <!-- Menú -->
+      <!-- Menú desktop -->
       <div class="hidden items-center gap-8 md:flex">
         <NuxtLink
           v-for="link in links"
           :key="link.name"
           :to="link.href"
-          class="font-medium text-slate-700 transition hover:text-primary dark:text-slate-200"
+          class="theme-text-muted theme-hover-primary font-body font-medium transition-colors"
         >
           {{ link.name }}
         </NuxtLink>
       </div>
 
-      <!-- Theme Switcher -->
-      <div class="flex items-center gap-4">
+      <!-- Theme Switcher + Menú móvil -->
+      <div class="flex items-center gap-3">
         <ThemeSwitcher />
-      </div>
 
-      <!-- Menú móvil -->
-      <button
-        class="text-2xl text-slate-700 dark:text-slate-200 md:hidden"
-        @click="isOpen = !isOpen"
-      >
-        <IconifyIcon :icon="isOpen ? 'mdi:close' : 'mdi:menu'" />
-      </button>
+        <button
+          type="button"
+          :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"
+          :aria-expanded="isOpen"
+          aria-controls="mobile-navigation"
+          class="theme-text-muted theme-hover-primary theme-focus rounded-lg p-2 text-2xl md:hidden"
+          @click="toggleMenu"
+        >
+          <IconifyIcon
+            :icon="isOpen ? 'mdi:close' : 'mdi:menu'"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
     </nav>
 
-    <!-- Menú desplegable móvil -->
+    <!-- Menú móvil -->
     <transition name="slide-fade">
       <div
         v-if="isOpen"
-        class="border-t border-white/10 bg-white/95 backdrop-blur-md dark:bg-slate-900/95 md:hidden"
+        id="mobile-navigation"
+        class="theme-mobile-menu theme-border border-t backdrop-blur-md md:hidden"
       >
-        <ul class="flex flex-col items-center gap-4 py-4">
+        <ul
+          class="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-5"
+        >
           <li
             v-for="link in links"
             :key="link.name"
           >
             <NuxtLink
               :to="link.href"
-              class="text-slate-700 transition hover:text-primary dark:text-slate-200"
-              @click="isOpen = false"
+              class="theme-text-muted theme-hover-primary theme-focus rounded-md px-3 py-2 font-body font-medium"
+              @click="closeMenu"
             >
               {{ link.name }}
             </NuxtLink>
@@ -70,24 +85,61 @@
 
   const isScrolled = ref(false)
   const isOpen = ref(false)
-  const links = ref(NAVIGATION_ITEMS)
+
+  const links = NAVIGATION_ITEMS
 
   const handleScroll = () => {
     isScrolled.value = window.scrollY > 50
+
+    if (isOpen.value) {
+      closeMenu()
+    }
   }
 
-  onMounted(() => window.addEventListener('scroll', handleScroll))
-  onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+  const toggleMenu = () => {
+    isOpen.value = !isOpen.value
+  }
+
+  const closeMenu = () => {
+    isOpen.value = false
+  }
+
+  const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      closeMenu()
+    }
+  }
+
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleResize)
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('resize', handleResize)
+  })
 </script>
 
 <style scoped>
   .slide-fade-enter-active,
   .slide-fade-leave-active {
-    transition: all 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
+
   .slide-fade-enter-from,
   .slide-fade-leave-to {
     transform: translateY(-10px);
     opacity: 0;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide-fade-enter-active,
+    .slide-fade-leave-active {
+      transition: none;
+    }
+  }
 </style>
+```

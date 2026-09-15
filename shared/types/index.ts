@@ -11,51 +11,13 @@ export interface Project {
 
 export interface Experience {
   id: string
+  period: string
   company: string
-  position: string
+  role: string
   description: string
-  responsibilities: string[]
-  achievements: string[]
   technologies: string[]
-  startDate: string
-  endDate?: string
   location: string
-  companyUrl?: string
-  companyLogo?: string
-  isCurrentJob: boolean
   highlights?: string[]
-}
-
-export interface Skill {
-  id: string
-  name: string
-  category: SkillCategory
-  icon?: string
-  color?: string
-  description?: string
-  yearsOfExperience?: number
-  projects?: string[] // Project IDs
-  priority: number
-}
-
-export interface Education {
-  id: string
-  institution: string
-  degree: string
-  field: string
-  startDate: string
-  endDate?: string
-  gpa?: number
-  description?: string
-  achievements?: string[]
-  location: string
-}
-
-export interface Author {
-  name: string
-  bio: string
-  image?: string
-  socialLinks: SocialLinks
 }
 
 export interface SocialLinks {
@@ -81,48 +43,12 @@ export interface SEOData {
   siteName?: string
 }
 
-export interface NavigationItem {
-  name: string
-  href: string
-  id: string
-  icon?: string
-  external?: boolean
-  children?: NavigationItem[]
-}
-
 export interface ThemeConfig {
   mode: 'light' | 'dark' | 'system'
   colorScheme: 'primary' | 'secondary' | 'accent'
   animations: boolean
   reducedMotion: boolean
 }
-
-export enum SkillCategory {
-  FRONTEND = 'frontend',
-  BACKEND = 'backend',
-  DATABASE = 'database',
-  DEVOPS = 'devops',
-  DESIGN = 'design',
-  FRAMEWORKS = 'frameworks',
-  TESTING = 'testing',
-  OTHER = 'other',
-}
-
-// Utility types
-export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
-export type RequiredFields<T, K extends keyof T> = T & Required<Pick<T, K>>
-
-// Animation types
-export interface AnimationConfig {
-  duration?: number
-  delay?: number
-  easing?: string
-  direction?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse'
-  fillMode?: 'none' | 'forwards' | 'backwards' | 'both'
-  iterationCount?: number | 'infinite'
-}
-
-// Component prop types
 
 export interface BaseButtonProps {
   to?: string

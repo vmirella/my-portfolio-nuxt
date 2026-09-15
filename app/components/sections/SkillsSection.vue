@@ -1,47 +1,66 @@
 <template>
   <section
     id="skills"
-    class="scroll-mt-12 bg-white py-20 dark:bg-slate-900"
+    class="theme-bg-soft theme-border scroll-mt-12 border-t py-20 sm:py-24"
   >
-    <div class="container mx-auto px-6">
-      <div class="mb-16 text-center">
-        <h2 class="mb-4 text-4xl font-bold text-slate-800 dark:text-white">
-          Habilidades Técnicas
+    <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <!-- Header -->
+      <div class="mx-auto mb-16 max-w-3xl text-center">
+        <p
+          class="theme-text-primary mb-3 text-sm font-semibold uppercase tracking-[0.2em]"
+        >
+          Stack técnico
+        </p>
+
+        <h2
+          class="theme-text font-heading text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+          Herramientas con las que construyo productos web.
         </h2>
-        <div class="mx-auto mb-8 h-1 w-20 bg-primary" />
-        <p class="mb-8 text-lg text-slate-600 dark:text-slate-400">
-          Mi stack tecnológico se centra en herramientas modernas para el
-          desarrollo Front-End, con un fuerte enfoque en el ecosistema Vue.js.
+
+        <p
+          class="theme-text-muted mx-auto mt-6 max-w-2xl text-base leading-7 sm:text-lg"
+        >
+          Mi experiencia se centra en el ecosistema Vue.js y en herramientas
+          orientadas al desarrollo, mantenimiento y evolución de aplicaciones
+          web.
         </p>
       </div>
 
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <GlassCard
+      <!-- Skill groups -->
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <BaseCard
           v-for="(group, i) in skillGroups"
           :key="i"
-          class="p-6 text-center"
+          class="p-6"
         >
-          <div class="flex justify-center">
+          <!-- Icon -->
+          <div
+            class="theme-bg-pill theme-text-primary mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
+          >
             <IconifyIcon
-              :icon="`${group.icon}`"
-              width="50"
-              class="mb-4 text-3xl text-secondary"
+              :icon="group.icon"
+              class="text-2xl"
+              aria-hidden="true"
             />
           </div>
 
-          <h3 class="mb-4 text-xl font-semibold text-slate-800 dark:text-white">
+          <!-- Title -->
+          <h3 class="theme-text mb-5 font-heading text-lg font-semibold">
             {{ group.title }}
           </h3>
-          <div class="flex flex-wrap justify-center gap-2">
+
+          <!-- Skills -->
+          <div class="flex flex-wrap gap-2">
             <span
               v-for="(skill, j) in group.skills"
               :key="j"
-              class="rounded-full bg-pill px-4 py-1 text-sm font-medium text-primary"
+              class="theme-pill rounded-full px-3 py-1.5 text-sm font-medium"
             >
               {{ skill }}
             </span>
           </div>
-        </GlassCard>
+        </BaseCard>
       </div>
     </div>
   </section>
@@ -49,33 +68,50 @@
 
 <script setup lang="ts">
   import { Icon as IconifyIcon } from '@iconify/vue'
+
   const skillGroups = [
     {
-      icon: 'mdi:tools',
-      title: 'Core Frontend',
-      skills: ['Vue', 'Vuex', 'Pinia', 'TypeScript', 'Vite', 'SCSS'],
+      icon: 'mdi:code-tags',
+      title: 'Frontend',
+      skills: ['Vue.js', 'JavaScript', 'TypeScript', 'Vuex', 'Pinia', 'Nuxt'],
     },
     {
-      icon: 'mdi:palette',
-      title: 'Estilos y UI',
+      icon: 'mdi:palette-outline',
+      title: 'UI & Styling',
       skills: [
-        'TailwindCSS',
+        'HTML5',
+        'CSS3',
+        'Sass / SCSS',
+        'Tailwind CSS',
         'Bootstrap',
         'Vuetify',
-        'Element',
-        'Sass / SCSS',
         'Responsive Design',
       ],
     },
     {
-      icon: 'mdi:steam-box',
-      title: 'Herramientas y Workflow',
-      skills: ['Git', 'GitHub', 'Webpack', 'Vitest', 'ESLint'],
+      icon: 'mdi:test-tube',
+      title: 'Testing & Quality',
+      skills: [
+        'Vitest',
+        'ESLint',
+        'Refactoring',
+        'Code Review',
+        'REST APIs',
+        'Axios',
+      ],
     },
     {
-      icon: 'mdi:lightbulb',
-      title: 'Conceptos y Prácticas',
-      skills: ['Scrum', 'UI/UX', 'Accesibilidad', 'Performance'],
+      icon: 'mdi:tools',
+      title: 'Workflow',
+      skills: [
+        'Git',
+        'GitHub',
+        'AWS CodeCommit',
+        'Webpack',
+        'Jira',
+        'Scrum',
+        'Kanban',
+      ],
     },
   ]
 </script>

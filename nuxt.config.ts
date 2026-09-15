@@ -85,7 +85,7 @@ export default defineNuxtConfig({
     url:
       process.env.NUXT_PUBLIC_SITE_URL ||
       'https://virginiacontreras.vercel.app',
-    name: 'Virginia Contreras - Desarrolladora Frontend',
+    name: 'Virginia Contreras',
     description:
       'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
     defaultLocale: 'es',
@@ -131,11 +131,6 @@ export default defineNuxtConfig({
     shim: false, // ✨ Recomendado para Nuxt 4
   },
 
-  // Configuración de build
-  build: {
-    transpile: ['gsap'],
-  },
-
   // CSS
   css: ['@/assets/css/themes.css', '@/assets/css/main.css'],
 
@@ -149,17 +144,6 @@ export default defineNuxtConfig({
     build: {
       minify: 'esbuild',
       sourcemap: process.env.NODE_ENV === 'development',
-      // ✨ Mejor optimización para producción
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            gsap: ['gsap'],
-          },
-        },
-      },
-    },
-    optimizeDeps: {
-      include: ['gsap'], // ✨ Pre-bundle GSAP
     },
     server: {
       fs: {

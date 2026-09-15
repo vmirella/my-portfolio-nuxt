@@ -1,102 +1,135 @@
 <template>
   <section
     id="about"
-    class="scroll-mt-12 bg-white py-20 dark:bg-slate-900"
+    class="theme-border theme-bg-soft scroll-mt-12 border-t py-20 sm:py-24"
   >
-    <div class="container mx-auto px-6">
-      <div class="mb-16 text-center">
-        <h2 class="mb-4 text-4xl font-bold text-slate-800 dark:text-white">
-          Sobre Mí
-        </h2>
-        <div class="mx-auto h-1 w-20 bg-primary" />
-      </div>
-      <!-- md:grid-cols-2 -->
-      <div class="grid items-center gap-12 md:grid-cols-2">
+    <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div
+        class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] lg:gap-20"
+      >
+        <!-- Content -->
         <div>
-          <h3
-            class="mb-6 text-2xl font-semibold text-slate-800 dark:text-white"
+          <!-- Section label -->
+          <p
+            class="theme-text-primary mb-3 text-sm font-semibold uppercase tracking-[0.2em]"
           >
-            Más de 6 años transformando ideas en experiencias web excepcionales.
-          </h3>
-          <p class="mb-6 text-slate-600 dark:text-slate-400">
-            Soy Virginia, una apasionada desarrolladora Front-End con más de
-            seis años de experiencia construyendo interfaces de usuario
-            dinámicas y responsivas. Mi viaje en el desarrollo comenzó con la
-            curiosidad de cómo la tecnología puede resolver problemas del mundo
-            real y crear experiencias significativas para los usuarios.
-          </p>
-          <p class="mb-8 text-slate-600 dark:text-slate-400">
-            Me especializo en Vue.js y tengo una sólida trayectoria en el
-            ecosistema JavaScript/TypeScript, con experiencia probada en el
-            desarrollo de aplicaciones para el sector fintech y plataformas de
-            gestión empresarial. Me encanta trabajar en equipos
-            multidisciplinarios, donde mi compromiso con las metodologías ágiles
-            y la entrega de código de alta calidad contribuyen a un producto
-            final robusto y escalable.
+            Sobre mí
           </p>
 
-          <div class="mb-8 grid grid-cols-2 gap-4">
-            <div class="flex items-center">
-              <div class="mr-3 h-3 w-3 rounded-full bg-secondary" />
-              <span class="text-slate-700 dark:text-slate-300">Vue.js</span>
-            </div>
-            <div class="flex items-center">
-              <div class="mr-3 h-3 w-3 rounded-full bg-secondary" />
-              <span class="text-slate-700 dark:text-slate-300"
-                >JavaScript/TypeScript</span
-              >
-            </div>
-            <div class="flex items-center">
-              <div class="mr-3 h-3 w-3 rounded-full bg-secondary" />
-              <span class="text-slate-700 dark:text-slate-300"
-                >Responsive Design</span
-              >
-            </div>
-            <div class="flex items-center">
-              <div class="mr-3 h-3 w-3 rounded-full bg-secondary" />
-              <span class="text-slate-700 dark:text-slate-300">APIs REST</span>
-            </div>
-          </div>
-
-          <BaseButton
-            :href="cvUrl"
-            download="Virginia_Contreras_CV.pdf"
-            variant="primary"
-            size="lg"
+          <!-- Heading -->
+          <h2
+            class="theme-text max-w-3xl font-heading text-3xl font-bold tracking-tight sm:text-4xl"
           >
-            <IconifyIcon icon="mdi:download" /> Descargar CV
-          </BaseButton>
-        </div>
-        <div class="flex flex-col justify-center align-middle">
-          <img
-            height="500"
-            width="600"
-            class="flex w-auto justify-center"
-            align="center"
-            :src="githubStats"
-          />
-          <div class="mt-4 flex items-center justify-center text-secondary">
-            <span class="mr-2">Lenguajes más usados en Github </span>
-            <IconifyIcon
-              icon="mdi:github"
-              height="20"
-              width="20"
-            />
+            Experiencia en productos reales, enfoque en evolución continua.
+          </h2>
+
+          <!-- Description -->
+          <div
+            class="theme-text-muted mt-8 max-w-3xl space-y-5 text-base leading-7"
+          >
+            <p>
+              Soy desarrolladora Front-End especializada en Vue.js. Mi
+              experiencia profesional se ha desarrollado principalmente en
+              productos fintech, soluciones B2B y plataformas internas de
+              gestión empresarial.
+            </p>
+
+            <p>
+              He trabajado principalmente con Vue 2 y JavaScript, participando
+              en el desarrollo de funcionalidades, integración de APIs,
+              mantenimiento evolutivo y refactorización de aplicaciones
+              existentes. También he asumido progresivamente mayor autonomía
+              sobre el desarrollo Front-End de productos en producción.
+            </p>
+
+            <p>
+              Actualmente estoy orientando mi evolución técnica hacia Vue 3,
+              TypeScript, Pinia, Nuxt y Vitest, aplicándolos en proyectos
+              personales y experimentaciones técnicas para complementar mi
+              experiencia profesional con un stack moderno.
+            </p>
           </div>
         </div>
+
+        <!-- Highlights -->
+        <aside class="theme-border theme-bg rounded-2xl border p-6 shadow-sm">
+          <h3 class="theme-text text-lg font-semibold">Lo que puedo aportar</h3>
+
+          <ul class="mt-6 space-y-5">
+            <li class="flex gap-4">
+              <span
+                class="theme-bg-pill theme-text-primary mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <div>
+                <p class="theme-text font-medium">Experiencia en producción</p>
+
+                <p class="theme-text-muted mt-1 text-sm leading-6">
+                  Experiencia desarrollando y evolucionando aplicaciones en
+                  contextos reales de negocio.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex gap-4">
+              <span
+                class="theme-bg-pill theme-text-primary mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <div>
+                <p class="theme-text font-medium">Autonomía Front-End</p>
+
+                <p class="theme-text-muted mt-1 text-sm leading-6">
+                  Capacidad para asumir responsabilidad sobre el desarrollo y
+                  mantenimiento del frontend.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex gap-4">
+              <span
+                class="theme-bg-pill theme-text-primary mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <div>
+                <p class="theme-text font-medium">Legacy & refactoring</p>
+
+                <p class="theme-text-muted mt-1 text-sm leading-6">
+                  Experiencia trabajando sobre código existente y mejorando
+                  progresivamente su mantenibilidad.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex gap-4">
+              <span
+                class="theme-bg-pill theme-text-primary mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+
+              <div>
+                <p class="theme-text font-medium">Evolución tecnológica</p>
+
+                <p class="theme-text-muted mt-1 text-sm leading-6">
+                  Actualmente enfocada en Vue 3, TypeScript, Pinia, Nuxt y
+                  testing.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </aside>
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-  import { Icon as IconifyIcon } from '@iconify/vue'
-
-  const cvUrl = computed(() => {
-    return `/cv/Virginia_Contreras_CV.pdf?t=${Date.now()}`
-  })
-
-  const githubStats = computed(() => {
-    return 'https://github-readme-stats-sage-six-40.vercel.app/api/top-langs/?username=vmirella&layout=donut&locale=es&hide_title=true&show_icons=true'
-  })
-</script>

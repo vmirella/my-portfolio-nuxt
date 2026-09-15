@@ -32,8 +32,8 @@ export const SOCIAL_LINKS = {
 export const NAVIGATION_ITEMS = [
   { name: 'Inicio', href: '/', id: 'hero' },
   { name: 'Sobre mí', href: '/#about', id: 'about' },
-  { name: 'Experiencia', href: '/#experience', id: 'experience' },
   { name: 'Habilidades', href: '/#skills', id: 'skills' },
+  { name: 'Experiencia', href: '/#experience', id: 'experience' },
   { name: 'Proyectos', href: '/#projects', id: 'projects' },
   { name: 'Contacto', href: '/#contact', id: 'contact' },
 ] as const
