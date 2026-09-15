@@ -1,64 +1,98 @@
 <template>
   <section
-    class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-24 text-center"
+    id="inicio"
+    class="relative isolate flex min-h-[calc(100vh-5rem)] items-center overflow-hidden"
   >
-    <div class="mx-auto max-w-4xl">
-      <div class="mb-8">
-        <img
-          src="/images/virginia_contreras_villafuerte.png"
-          alt="Virginia Contreras"
-          width="128"
-          height="128"
-          class="backgroundImage mx-auto mb-4 h-32 w-32 animate-scale-in rounded-full object-cover shadow-lg"
-          loading="lazy"
-        />
+    <!-- Decorative background -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 overflow-hidden"
+    >
+      <div
+        class="theme-decoration-primary absolute -right-32 -top-32 h-80 w-80 rounded-full blur-3xl"
+      />
 
+      <div
+        class="theme-decoration-secondary absolute -bottom-32 -left-32 h-80 w-80 rounded-full blur-3xl"
+      />
+    </div>
+
+    <div class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-24">
+      <div class="max-w-4xl">
+        <!-- Eyebrow -->
+        <p
+          class="theme-text mb-5 text-sm font-semibold uppercase tracking-[0.2em]"
+        >
+          Frontend Developer · Vue.js
+        </p>
+
+        <!-- Heading -->
         <h1
-          class="mb-4 animate-fade-in text-5xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-6xl"
+          class="theme-text max-w-4xl font-heading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
         >
-          Hola, soy <span class="text-primary">Virginia Contreras</span>
+          Desarrollo experiencias web con
+          <span class="text-gradient-theme"> Vue.js. </span>
         </h1>
-        <p
-          class="mb-8 animate-slide-up text-2xl font-medium text-gray-700 dark:text-gray-200"
-        >
-          Desarrolladora
-          <span class="font-bold text-primary">Front-End</span>
-          con 6+ años de experiencia.
-        </p>
-        <p
-          class="mx-auto mb-12 max-w-2xl text-lg text-gray-600 dark:text-gray-400"
-        >
-          Transformo ideas en interfaces web dinámicas y responsivas,
-          especializándome en construir experiencias de usuario excepcionales
-          con un enfoque en la calidad y el rendimiento.
-        </p>
-      </div>
 
-      <div class="mb-12 flex flex-wrap justify-center gap-8">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-primary">{{ countFirtRef }}+</div>
-          <div class="text-sm text-gray-600 dark:text-gray-400">
-            Años de experiencia
-          </div>
+        <!-- Description -->
+        <p class="theme-text-muted mt-7 max-w-3xl text-lg leading-8 sm:text-xl">
+          Más de 6 años de experiencia construyendo y evolucionando aplicaciones
+          web para productos fintech, soluciones B2B y plataformas de gestión
+          empresarial.
+        </p>
+
+        <p class="theme-text-muted mt-4 max-w-3xl text-base leading-7">
+          Especializada en Vue.js, con experiencia en Vue 2 y actualmente
+          enfocada en Vue 3, TypeScript, Pinia y testing.
+        </p>
+
+        <!-- Actions -->
+        <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+          <BaseButton
+            to="#projects"
+            variant="primary"
+            size="md"
+          >
+            Ver proyectos
+          </BaseButton>
+
+          <BaseButton
+            href="https://drive.google.com/file/d/1GtImgIyfUioGj7K8i4QEKgXH3peFAoSt/view?usp=sharing"
+            download
+            target="external"
+            variant="secondary"
+            size="md"
+          >
+            Descargar CV
+          </BaseButton>
+        </div>
+
+        <!-- Tech stack -->
+        <div class="mt-12">
+          <p
+            class="theme-text-muted mb-4 text-xs font-medium uppercase tracking-wider"
+          >
+            Stack principal
+          </p>
+
+          <ul
+            class="flex flex-wrap gap-2"
+            aria-label="Tecnologías principales"
+          >
+            <li
+              v-for="technology in technologies"
+              :key="technology"
+              class="theme-pill rounded-full px-3 py-1.5 text-sm font-medium"
+            >
+              {{ technology }}
+            </li>
+          </ul>
         </div>
       </div>
-      <BaseButton
-        to="#projects"
-        variant="primary"
-        size="lg"
-      >
-        Ver mi trabajo
-      </BaseButton>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  const { countUp } = useAnimation()
-
-  const countFirtRef = ref(1)
-
-  onMounted(() => {
-    if (countFirtRef.value) countUp(countFirtRef, 6, 3)
-  })
+  const technologies = ['Vue.js', 'TypeScript', 'Pinia', 'Nuxt', 'Vitest']
 </script>

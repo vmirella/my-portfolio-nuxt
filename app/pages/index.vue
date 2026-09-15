@@ -3,8 +3,8 @@
     <main>
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
       <SkillsSection />
+      <ExperienceSection />
       <ProjectsSection />
     </main>
   </div>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   useSeoMeta({
-    title: 'Virginia Contreras - Desarrolladora Frontend Vue.js',
+    title: 'Desarrolladora Frontend Vue.js',
     description:
       'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
   })

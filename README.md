@@ -1,183 +1,191 @@
-# 🚀 Portfolio Virginia Contreras
+# Portfolio Virginia Contreras
 
-Portfolio personal moderno y responsivo construido con **Nuxt 4** y **Tailwind CSS 3**, optimizado para rendimiento y SEO.
+Portfolio personal desarrollado con Nuxt 4, Vue 3 y TypeScript para presentar mi perfil profesional, experiencia, stack técnico y proyectos destacados.
 
-[virginiacontreras.vercel.app](https://virginiacontreras.vercel.app)
+Sitio en producción: [virginiacontreras.vercel.app](https://virginiacontreras.vercel.app)
 
-## ✨ Características
+## Descripción general
 
-- 🎨 **Diseño Moderno**: Interfaz limpia y profesional con animaciones suaves
-- 🌙 **Modo Oscuro**: Soporte completo para tema claro/oscuro con persistencia
-- 📱 **Responsive**: Diseño adaptativo para todos los dispositivos
-- ⚡ **Alto Rendimiento**: Optimizado con Nuxt 4 y técnicas de performance
-- 🔍 **SEO Optimizado**: Meta tags, Open Graph, Schema.org y sitemap
-- 🎭 **Animaciones**: Transiciones suaves con GSAP y CSS
-- 📧 **Formulario de Contacto**: Sistema de contacto funcional
-- 🎯 **TypeScript**: Tipado completo para mejor desarrollo
-- 🧪 **Testing**: Configurado con Vitest y Playwright
-- 📦 **Componentes Reutilizables**: Arquitectura modular y escalable
+Este proyecto es un portafolio de frontend developer con una estructura orientada a contenido y marketing personal. La app está pensada para:
 
-## 🛠️ Stack Tecnológico
+- presentar mi identidad profesional y resumen de experiencia;
+- mostrar proyectos personales y experimentos técnicos;
+- destacar tecnologías y metodologías de trabajo;
+- mantener una navegación clara con diseño responsivo;
+- optimizar SEO, tema visual y usabilidad en desktop y móvil.
+
+La aplicación usa SSR de Nuxt y está configurada para desplegarse en Vercel, con meta tags, sitemap y robots configurados para producción.
+
+## Características principales
+
+- Diseño moderno y responsivo con Tailwind CSS.
+- Tema personalizable con selección de paleta y modo oscuro persistente.
+- Header fijo con navegación desktop y menú móvil.
+- Secciones principales: hero, sobre mí, stack, experiencia y proyectos.
+- Datos centralizados en archivos TypeScript dentro de `app/data`.
+- Enlaces a GitHub, LinkedIn y descarga del CV.
+- SEO básico con `@nuxtjs/seo`, meta tags y configuración de sitio.
+- Estructura modular de componentes reutilizables.
+- Preparado para despliegue con Nitro y configuración específica para Vercel.
+
+## Stack tecnológico
 
 ### Frontend
 
-- **[Nuxt 4](https://nuxt.com/)** - Framework Vue.js full-stack
-- **[Vue 3](https://vuejs.org/)** - Framework JavaScript reactivo
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
-- **[Tailwind CSS 3](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[GSAP](https://greensock.com/gsap/)** - Librería de animaciones
+- [Nuxt 4](https://nuxt.com/)
+- [Vue 3](https://vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-### Herramientas y Librerías
+### Librerías y módulos
 
-- **[@vueuse/nuxt](https://vueuse.org/)** - Composables utilitarios
-- **[@pinia/nuxt](https://pinia.vuejs.org/)** - Gestión de estado
-- **[@nuxtjs/seo](https://nuxtseo.com/)** - Optimización SEO
-- **[@nuxtjs/google-fonts](https://google-fonts.nuxtjs.org/)** - Google Fonts
+- [@vueuse/nuxt](https://vueuse.org/)
+- [@pinia/nuxt](https://pinia.vuejs.org/)
+- [@nuxtjs/seo](https://nuxtseo.com/)
+- [@nuxtjs/tailwindcss](https://tailwindcss.nuxtjs.org/)
+- [@iconify/vue](https://iconify.design/)
 
-### Desarrollo y Calidad
+### Calidad y tooling
 
-- **[ESLint](https://eslint.org/)** - Linting de código
-- **[Prettier](https://prettier.io/)** - Formateo de código
-- **[Husky](https://typicode.github.io/husky/)** - Git hooks
-- **[Commitizen](https://commitizen-tools.github.io/commitizen/)** - Commits convencionales
-- **[Vitest](https://vitest.dev/)** - Testing unitario
-- **[Playwright](https://playwright.dev/)** - Testing E2E
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Husky](https://typicode.github.io/husky/)
+- [Commitlint](https://commitlint.js.org/)
+- [Vitest](https://vitest.dev/)
+- [Playwright](https://playwright.dev/)
 
-## 📁 Estructura del Proyecto
+## Estructura del proyecto
 
-```
+```bash
 my-portfolio-nuxt/
-├── 📁 assets/                 # Recursos estáticos (CSS, imágenes)
-│   ├── css/
-│   │   ├── main.css          # Estilos principales
-│   │   ├── themes.css        # variables de temas
-│   └── images/               # Imágenes del proyecto
-├── 📁 components/            # Componentes Vue reutilizables
-│   ├── animations/           # Componentes de animación
-│   ├── layout/              # Componentes de layout
-│   ├── sections/            # Secciones de la página
-│   └── ui/                  # Componentes UI base
-├── 📁 composables/          # Composables Vue
-│   ├── useTheme.ts          # Gestión de temas
-│   └── useAnimation.ts      # Animaciones
-├── 📁 data/
-│   ├── projects.ts         # Datos de proyectos
-│   └── socialNetworks.ts   # Datos de redes sociales
-├── 📁 layouts/             # Layouts de página
-├── 📁 pages/               # Páginas de la aplicación
-├── 📁 plugins/             # Plugins de Nuxt
-|   └── gsap.client.ts
-├── 📁 public/              # Archivos públicos
-│   ├── images/             # Imágenes públicas
-│   └── cv/                 # CV en PDF
-├── 📁 shared/
-    └── types/              # Definiciones de tipos TypeScript
-├── 📁 utils/               # Funciones utilitarias
-│   └── constants.ts        # Constantes de la aplicación
-├── nuxt.config.ts          # Configuración de Nuxt
-├── tailwind.config.js      # Configuración de Tailwind
-└── package.json            # Dependencias y scripts
+├── app/
+│   ├── app.vue                    # Componente raíz de la app Nuxt
+│   ├── components/
+│   │   ├── layout/                # Header, footer y switcher de tema
+│   │   ├── sections/              # Hero, About, Skills, Experience, Projects
+│   │   └── ui/                    # Botones, cards y componentes reutilizables
+│   ├── composables/
+│   │   └── useTheme.ts            # Lógica de tema oscuro y paleta visual
+│   ├── data/
+│   │   ├── experiences.ts        # Datos de experiencia profesional
+│   │   ├── projects.ts            # Datos de proyectos destacados
+│   │   └── socialNetworks.ts      # Enlaces a redes sociales
+│   ├── layouts/
+│   │   └── default.vue            # Layout global con header y footer
+│   ├── pages/
+│   │   └── index.vue              # Página principal del portafolio
+│   ├── plugins/
+│   ├── utils/
+│   │   └── constants.ts           # Constantes de navegación y links
+│   └── assets/
+│       └── css/
+│           ├── main.css           # Estilos globals y utilidades
+│           └── themes.css         # Variables de color y tema
+├── public/
+│   ├── cv/
+│   │   └── Virginia_Contreras_CV.pdf
+│   ├── favicon.ico
+│   └── images/
+│       ├── my-portfolio.png
+│       ├── marca-peru.png
+│       ├── twisted-snake.png
+│       ├── pokedex.png
+│       ├── carnet-download.png
+│       └── virginia_contreras_villafuerte.png
+├── shared/
+│   └── types/
+│       └── index.ts               # Tipos compartidos del proyecto
+├── .env.dev                       # Variables de entorno para desarrollo
+├── .env.prod                      # Variables de entorno para producción
+├── .eslintrc.cjs                  # Configuración de ESLint
+├── .gitignore
+├── .husky/
+├── .npmrc
+├── LICENSE
+├── commitlint.config.js
+├── env.d.ts
+├── eslint.config.js
+├── nuxt.config.ts                # Configuración principal de Nuxt
+├── package.json                   # Scripts y dependencias
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── tailwind.config.js            # Configuración de Tailwind
+├── tsconfig.json
+├── vercel.json                    # Configuración del despliegue en Vercel
+└── README.md
 ```
 
-## 🚀 Inicio Rápido
+## Scripts disponibles
 
-### Prerrequisitos
+El proyecto define estos scripts en `package.json`:
 
-- Node.js 18+
-- pnpm (recomendado) o npm
+```bash
+pnpm install
+pnpm dev
+pnpm build
+pnpm generate
+pnpm preview
+pnpm postinstall
+pnpm commit
+pnpm format
+pnpm lint
+pnpm lint:fix
+pnpm test
+pnpm test:ui
+pnpm test:coverage
+pnpm test:e2e
+pnpm analyze
+```
+
+## Desarrollo local
+
+### Requisitos
+
+- Node.js compatible con Nuxt 4
+- pnpm
 
 ### Instalación
 
-1. **Clonar el repositorio**
-
-   ```bash
-   git clone https://github.com/virginia-contreras/my-portfolio-nuxt.git
-   cd my-portfolio-nuxt
-   ```
-
-2. **Instalar dependencias**
-
-   ```bash
-   pnpm install
-   ```
-
-3. **Ejecutar en desarrollo**
-
-   ```bash
-   pnpm dev
-   ```
-
-4. **Abrir en el navegador**
-   ```
-   http://localhost:3000
-   ```
-
-## 📜 Scripts Disponibles
-
 ```bash
-# Desarrollo
-pnpm dev              # Servidor de desarrollo
-pnpm dev --host       # Servidor accesible desde la red
-
-# Construcción
-pnpm build            # Construir para producción
-pnpm generate         # Generar sitio estático
-pnpm preview          # Vista previa de producción
-
-# Calidad de código
-pnpm lint             # Ejecutar ESLint
-pnpm lint:fix         # Corregir errores de ESLint
-pnpm format           # Formatear código con Prettier
-pnpm format:check     # Verificar formato
-pnpm typecheck        # Verificar tipos TypeScript
-
-# Testing
-pnpm test             # Ejecutar tests unitarios
-pnpm test:ui          # UI de testing
-pnpm test:coverage    # Cobertura de tests
-pnpm test:e2e         # Tests end-to-end
-
-# Utilidades
-pnpm analyze          # Analizar bundle
-pnpm cleanup          # Limpiar archivos temporales
-pnpm commit           # Commit con Commitizen
+git clone https://github.com/vmirella/my-portfolio-nuxt.git
+cd my-portfolio-nuxt
+pnpm install
 ```
 
-## 🎨 Personalización
+### Ejecutar en desarrollo
 
-### Colores y Temas
+```bash
+pnpm dev
+```
 
-Los colores se definen en `tailwind.config.js` y `themes.css`:
+Luego abre `http://localhost:3000`.
 
-## 📱 Responsive Design
+### Build de producción
 
-El diseño es completamente responsive con breakpoints:
+```bash
+pnpm build
+```
 
-- **sm**: 640px+
-- **md**: 768px+
-- **lg**: 1024px+
-- **xl**: 1280px+
-- **2xl**: 1536px+
+Para previsualizar la salida generada:
 
-## 📄 Licencia
+```bash
+pnpm preview
+```
 
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+## Configuración notable
 
-## 👩‍💻 Autora
+- `nuxt.config.ts` activa SSR y define un preset de Nitro para Vercel.
+- Se usa `@nuxtjs/seo` para generar metadata del sitio y configuración de robots/sitemap.
+- El proyecto usa `app/` como directorio de la aplicación Nuxt, no un `src/` tradicional.
+- El estado del tema y del modo oscuro se persiste con `localStorage`.
+- Los assets estáticos importantes como la imagen principal, favicon y CV viven en `public/`.
 
-**Virginia Contreras**
+## Licencia
 
-- GitHub: [@virginia-contreras](https://github.com/vmirella)
-- LinkedIn: [Virginia Contreras](https://linkedin.com/in/virginia-contreras)
+Este proyecto está bajo la licencia MIT. Consulta `LICENSE` para más detalles.
+
+## Contacto
+
+- GitHub: [@vmirella](https://github.com/vmirella)
+- LinkedIn: [Virginia Contreras](https://www.linkedin.com/in/virginia-contreras)
 - Email: virginiacontrerasvillafuerte@gmail.com
-
-## 🙏 Agradecimientos
-
-- [Nuxt Team](https://nuxt.com/) por el increíble framework
-- [Tailwind CSS](https://tailwindcss.com/) por el sistema de diseño
-- [GSAP](https://greensock.com/) por las animaciones
-- [Heroicons](https://heroicons.com/) por los iconos
-
----
-
-⭐ Si este proyecto te fue útil, ¡dale una estrella en GitHub!

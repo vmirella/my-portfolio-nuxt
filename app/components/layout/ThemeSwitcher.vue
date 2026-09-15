@@ -1,30 +1,35 @@
 <template>
   <div class="flex items-center gap-2">
-    <!-- 🎨 Selector de temas -->
+    <!-- Accent themes -->
     <div
-      class="flex gap-2 rounded-lg bg-white/10 p-1 backdrop-blur-md dark:bg-slate-800/40"
+      class="theme-switcher rounded-lg p-1"
+      aria-label="Seleccionar color del tema"
     >
       <button
-        v-for="t in themes"
-        :key="t.id"
+        v-for="theme in themes"
+        :key="theme.id"
         type="button"
-        class="h-6 w-6 rounded-full border border-white/20 transition-transform hover:scale-110 md:h-7 md:w-7"
-        :style="{ background: t.gradient }"
-        :class="{ 'ring-2 ring-white': currentTheme === t.id }"
-        :title="t.name"
-        @click="setTheme(t.id)"
+        class="theme-color-button"
+        :style="{ backgroundImage: theme.gradient }"
+        :class="{ 'theme-color-button-active': currentTheme === theme.id }"
+        :title="`Tema ${theme.name}`"
+        :aria-label="`Seleccionar tema ${theme.name}`"
+        :aria-pressed="currentTheme === theme.id"
+        @click="setTheme(theme.id)"
       />
     </div>
 
-    <!-- 🌗 Toggle modo oscuro -->
+    <!-- Dark mode -->
     <button
-      class="rounded-lg p-2 text-slate-700 transition-all hover:bg-white/20 dark:text-slate-200"
-      title="Cambiar tema"
+      type="button"
+      class="theme-mode-button theme-text-muted theme-hover-primary"
+      :title="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
+      :aria-label="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
       @click="toggleDarkMode"
     >
       <IconifyIcon
         :icon="isDark ? 'mdi:weather-sunny' : 'mdi:weather-night'"
-        class="text-xl transition-transform duration-300"
+        class="text-xl"
       />
     </button>
   </div>
@@ -32,28 +37,35 @@
 
 <script setup lang="ts">
   import { Icon as IconifyIcon } from '@iconify/vue'
+
+  type Theme = 'blue' | 'green' | 'purple' | 'orange'
+
   const { currentTheme, isDark, setTheme, toggleDarkMode } = useTheme()
 
-  const themes = [
+  const themes: {
+    id: Theme
+    name: string
+    gradient: string
+  }[] = [
     {
       id: 'blue',
-      name: 'Blue',
-      gradient: 'linear-gradient(to right,#3b82f6,#8b5cf6)',
+      name: 'Azul',
+      gradient: 'var(--theme-blue-gradient)',
     },
     {
       id: 'green',
-      name: 'Green',
-      gradient: 'linear-gradient(to right,#10b981,#06b6d4)',
+      name: 'Verde',
+      gradient: 'var(--theme-green-gradient)',
     },
     {
       id: 'purple',
-      name: 'Purple',
-      gradient: 'linear-gradient(to right,#8b5cf6,#ec4899)',
+      name: 'Morado',
+      gradient: 'var(--theme-purple-gradient)',
     },
     {
       id: 'orange',
-      name: 'Orange',
-      gradient: 'linear-gradient(to right,#f97316,#ec4899)',
+      name: 'Naranja',
+      gradient: 'var(--theme-orange-gradient)',
     },
   ]
 </script>

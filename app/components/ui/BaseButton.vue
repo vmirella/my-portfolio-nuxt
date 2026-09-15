@@ -64,19 +64,20 @@
   })
 
   const baseClasses = `
-  transform hover:scale-105 active:scale-95
-  focus:outline-none focus:ring-2 focus:ring-offset-2
+  theme-button
+  theme-focus
   disabled:opacity-50 disabled:pointer-events-none
-  transition-all duration-300
-`
+  `
 
   const variantClasses = computed(() => {
     if (props.variant === 'primary') {
-      return 'shadow-theme bg-gradient-theme text-white'
+      return 'theme-button-primary'
     }
+
     if (props.variant === 'secondary') {
-      return 'bg-slate-200 text-slate-800 hover:bg-slate-300 dark:bg-slate-600 dark:text-white dark:hover:bg-slate-500'
+      return 'theme-button-secondary'
     }
+
     return ''
   })
 
