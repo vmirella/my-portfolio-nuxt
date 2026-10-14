@@ -30,25 +30,25 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/vmirella/twisted-snake?tab=readme-ov-file',
     demoUrl: 'https://vmirella.github.io/twisted-snake/',
   },
-  {
-    id: '4',
-    name: 'Pokedex',
-    description:
-      'Crecí jugando Pokémon, así que cuando vi este reto no lo pensé dos veces y me propuse recrear la experiencia de consultar la Pokédex del Profesor Oak, pero en la web. Fue el proyecto perfecto para practicar consumo de APIs y gestión de datos con Vuex.',
-    technologies: ['Vue 2', 'Vuex', 'Bootstrap'],
-    image: '/images/pokedex.png',
-    githubUrl: 'https://github.com/vmirella/pokedex',
-    demoUrl: 'https://vmirella.github.io/pokedex/#/',
-  },
+  // {
+  //   id: '4',
+  //   name: 'Pokedex',
+  //   description:
+  //     'Crecí jugando Pokémon, así que cuando vi este reto no lo pensé dos veces y me propuse recrear la experiencia de consultar la Pokédex del Profesor Oak, pero en la web. Fue el proyecto perfecto para practicar consumo de APIs y gestión de datos con Vuex.',
+  //   technologies: ['Vue 2', 'Vuex', 'Bootstrap'],
+  //   image: '/images/pokedex.png',
+  //   githubUrl: 'https://github.com/vmirella/pokedex',
+  //   demoUrl: 'https://vmirella.github.io/pokedex/#/',
+  // },
 
-  {
-    id: '5',
-    name: 'Generador de carnet',
-    description:
-      'Generador de carnet en React. El reto era simple generar carnets personalizados, pero lo que realmente me interesaba era entender las diferencias entre ambos frameworks, Vue y React, y así expandir mi stack de herramientas.',
-    technologies: ['React', 'Reactstrap'],
-    image: '/images/carnet-download.png',
-    githubUrl: 'https://github.com/vmirella/reto-divemotors',
-    demoUrl: 'https://vmirella.github.io/reto-divemotors/',
-  },
+  // {
+  //   id: '5',
+  //   name: 'Generador de carnet',
+  //   description:
+  //     'Generador de carnet en React. El reto era simple generar carnets personalizados, pero lo que realmente me interesaba era entender las diferencias entre ambos frameworks, Vue y React, y así expandir mi stack de herramientas.',
+  //   technologies: ['React', 'Reactstrap'],
+  //   image: '/images/carnet-download.png',
+  //   githubUrl: 'https://github.com/vmirella/reto-divemotors',
+  //   demoUrl: 'https://vmirella.github.io/reto-divemotors/',
+  // },
 ]
