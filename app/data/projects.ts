@@ -22,13 +22,13 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    name: 'Twisted snake',
+    name: 'Ardilla y Bellota',
     description:
-      'Me encantan los juegos retro con un twist. La idea de invertir los controles me pareció un desafío interesante tanto en lógica como en UX. Desarrollé este juego en Vue para demostrar que el framework no es solo para aplicaciones empresariales, también puede ser divertido.',
-    technologies: ['Vue 2', 'Bootstrap'],
+      'Me encantan los juegos retro con un toque diferente. En este proyecto me propuse darle una vuelta divertida al clásico Snake, pero con una estética más amigable y una mecánica que hace que la experiencia se sienta más original. Lo desarrollé en Vue para demostrar que este framework también puede crear experiencias más lúdicas y visuales, no solo apps empresariales.',
+    technologies: ['Vue 3', 'Vite'],
     image: '/images/twisted-snake.png',
     githubUrl: 'https://github.com/vmirella/twisted-snake?tab=readme-ov-file',
-    demoUrl: 'https://vmirella.github.io/twisted-snake/',
+    demoUrl: 'https://twisted-snake.vercel.app/',
   },
   // {
   //   id: '4',
