@@ -1,12 +1,9 @@
-type Theme = 'blue' | 'green' | 'purple' | 'orange'
+import type { Theme } from '../types/theme'
+
+const themes: Theme[] = ['blue', 'green', 'purple', 'orange']
 
 const isValidTheme = (theme: string | null): theme is Theme => {
-  return (
-    theme === 'blue' ||
-    theme === 'green' ||
-    theme === 'purple' ||
-    theme === 'orange'
-  )
+  return themes.includes(theme as Theme)
 }
 
 export const useTheme = () => {
@@ -14,41 +11,57 @@ export const useTheme = () => {
   const isDark = useState<boolean>('dark', () => false)
 
   const applyTheme = (theme: Theme) => {
-    if (!import.meta.client) return
+    // remove any existing theme-... classes
+    for (const t of themes) {
+      document.documentElement.classList.remove(`theme-${t}`)
+    }
+    // add new theme class
+    document.documentElement.classList.add(`theme-${theme}`)
 
+    // also keep data-theme for CSS if needed
     document.documentElement.setAttribute('data-theme', theme)
   }
 
   const applyDarkMode = (dark: boolean) => {
-    if (!import.meta.client) return
-
-    document.documentElement.classList.toggle('dark', dark)
+    if (dark) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   }
 
-  const setTheme = (theme: Theme) => {
+  const setTheme = (theme: Theme | string) => {
+    if (!isValidTheme(theme)) {
+      return
+    }
+
     currentTheme.value = theme
 
-    if (import.meta.client) {
-      localStorage.setItem('portfolio-theme', theme)
-      applyTheme(theme)
+    try {
+      localStorage.setItem('theme', theme)
+    } catch (e) {
+      /* ignore storage errors in restricted environments */
     }
+
+    applyTheme(theme as Theme)
   }
 
   const toggleDarkMode = () => {
     isDark.value = !isDark.value
 
-    if (import.meta.client) {
-      localStorage.setItem('dark-mode', String(isDark.value))
-      applyDarkMode(isDark.value)
+    try {
+      localStorage.setItem('dark', String(isDark.value))
+    } catch (e) {
+      /* ignore storage errors in restricted environments */
     }
+
+    applyDarkMode(isDark.value)
   }
 
   onMounted(() => {
-    if (!import.meta.client) return
-
     try {
-      const savedTheme = localStorage.getItem('portfolio-theme')
-      const savedDark = localStorage.getItem('dark-mode')
+      const savedTheme = localStorage.getItem('theme')
+      const savedDark = localStorage.getItem('dark')
 
       if (isValidTheme(savedTheme)) {
         currentTheme.value = savedTheme
@@ -61,6 +74,8 @@ export const useTheme = () => {
       applyTheme(currentTheme.value)
       applyDarkMode(isDark.value)
     } catch (error) {
+      // Do not break initialization when storage or DOM access fails
+
       console.error('Error initializing theme:', error)
     }
   })
