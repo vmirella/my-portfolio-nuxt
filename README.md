@@ -52,7 +52,6 @@ La aplicación usa SSR de Nuxt y está configurada para desplegarse en Vercel, c
 - [Husky](https://typicode.github.io/husky/)
 - [Commitlint](https://commitlint.js.org/)
 - [Vitest](https://vitest.dev/)
-- [Playwright](https://playwright.dev/)
 
 ## Estructura del proyecto
 
@@ -83,7 +82,7 @@ my-portfolio-nuxt/
 │           └── themes.css         # Variables de color y tema
 ├── public/
 │   ├── cv/
-│   │   └── Virginia_Contreras_CV.pdf
+│   │   └── CV_Virginia_Contreras_Frontend.pdf
 │   ├── favicon.ico
 │   └── images/
 │       ├── my-portfolio.png

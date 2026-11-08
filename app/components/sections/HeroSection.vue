@@ -19,34 +19,32 @@
 
     <div class="mx-auto w-full max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-24">
       <div class="max-w-4xl">
-        <!-- Eyebrow -->
         <p
           class="theme-text mb-5 text-sm font-semibold uppercase tracking-[0.2em]"
         >
           Frontend Developer · Vue.js
         </p>
 
-        <!-- Heading -->
         <h1
           class="theme-text max-w-4xl font-heading text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
         >
-          Desarrollo experiencias web con
-          <span class="text-gradient-theme"> Vue.js. </span>
+          Desarrollo y evoluciono aplicaciones web para productos fintech y
+          plataformas empresariales.
         </h1>
 
-        <!-- Description -->
         <p class="theme-text-muted mt-7 max-w-3xl text-lg leading-8 sm:text-xl">
-          Más de 6 años de experiencia construyendo y evolucionando aplicaciones
-          web para productos fintech, soluciones B2B y plataformas de gestión
-          empresarial.
+          Más de 6 años de experiencia en desarrollo frontend, especializada en
+          Vue.js y en la evolución de aplicaciones utilizadas en procesos reales
+          de negocio.
         </p>
 
         <p class="theme-text-muted mt-4 max-w-3xl text-base leading-7">
-          Especializada en Vue.js, con experiencia en Vue 2 y actualmente
-          enfocada en Vue 3, TypeScript, Pinia y testing.
+          Experiencia en integración de APIs, refactorización, mantenimiento de
+          aplicaciones en producción y desarrollo de funcionalidades con reglas
+          de negocio complejas. Actualmente amplío mi stack mediante proyectos
+          personales con Vue 3, TypeScript, Nuxt y React.
         </p>
 
-        <!-- Actions -->
         <div class="mt-9 flex flex-col gap-4 sm:flex-row">
           <BaseButton
             to="#projects"
@@ -57,9 +55,8 @@
           </BaseButton>
 
           <BaseButton
-            href="https://drive.google.com/file/d/1GtImgIyfUioGj7K8i4QEKgXH3peFAoSt/view?usp=sharing"
-            download
-            target="external"
+            :href="cvUrl"
+            download="CV_Virginia_Contreras_Frontend.pdf"
             variant="secondary"
             size="md"
           >
@@ -67,12 +64,11 @@
           </BaseButton>
         </div>
 
-        <!-- Tech stack -->
         <div class="mt-12">
           <p
             class="theme-text-muted mb-4 text-xs font-medium uppercase tracking-wider"
           >
-            Stack principal
+            Tecnologías principales
           </p>
 
           <ul
@@ -94,5 +90,16 @@
 </template>
 
 <script setup lang="ts">
-  const technologies = ['Vue.js', 'TypeScript', 'Pinia', 'Nuxt', 'Vitest']
+  const technologies = [
+    'Vue.js',
+    'JavaScript',
+    'Vuex',
+    'TypeScript',
+    'Vue 3',
+    'Nuxt',
+    'Vitest',
+  ]
+  const cvUrl = computed(() => {
+    return `/cv/CV_Virginia_Contreras_Frontend.pdf`
+  })
 </script>

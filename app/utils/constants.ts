@@ -2,21 +2,25 @@
 
 export const SITE_CONFIG = {
   name: 'Virginia Contreras',
-  title: 'Virginia Contreras - Desarrolladora Frontend',
+  title: 'Virginia Contreras | Frontend Developer Vue.js',
   description:
-    'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
+    'Frontend Developer con más de 6 años de experiencia en Vue.js, plataformas fintech, aplicaciones empresariales, integración de APIs y evolución de productos web.',
   url: 'https://virginiacontreras.vercel.app',
   author: 'Virginia Contreras',
   email: 'virginiacontrerasvillafuerte@gmail.com',
   location: 'Lima, Perú',
   keywords: [
+    'Frontend Developer',
     'Vue.js',
-    'Frontend',
-    'Desarrolladora',
+    'Vue 3',
     'JavaScript',
     'TypeScript',
     'Nuxt',
     'React',
+    'Next.js',
+    'Fintech',
+    'Aplicaciones empresariales',
+    'REST APIs',
     'CSS',
     'HTML',
     'Tailwind CSS',
@@ -32,8 +36,8 @@ export const SOCIAL_LINKS = {
 export const NAVIGATION_ITEMS = [
   { name: 'Inicio', href: '/', id: 'hero' },
   { name: 'Sobre mí', href: '/#about', id: 'about' },
-  { name: 'Habilidades', href: '/#skills', id: 'skills' },
   { name: 'Experiencia', href: '/#experience', id: 'experience' },
+  { name: 'Habilidades', href: '/#skills', id: 'skills' },
   { name: 'Proyectos', href: '/#projects', id: 'projects' },
   { name: 'Contacto', href: '/#contact', id: 'contact' },
 ] as const
