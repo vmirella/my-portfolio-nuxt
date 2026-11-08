@@ -4,7 +4,6 @@
     class="theme-bg-soft theme-border scroll-mt-12 border-t py-20 sm:py-24"
   >
     <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-      <!-- Header -->
       <div class="mx-auto mb-16 max-w-3xl text-center">
         <p
           class="theme-text-primary mb-3 text-sm font-semibold uppercase tracking-[0.2em]"
@@ -21,12 +20,12 @@
         <p
           class="theme-text-muted mx-auto mt-6 max-w-2xl text-base leading-7 sm:text-lg"
         >
-          Más de 6 años desarrollando y evolucionando aplicaciones web para
-          productos fintech, soluciones B2B y plataformas internas de gestión.
+          Desarrollo frontend para productos fintech, soluciones B2B y
+          plataformas empresariales, con foco en funcionalidades de negocio,
+          mantenibilidad y calidad de entrega.
         </p>
       </div>
 
-      <!-- Timeline -->
       <div class="mx-auto max-w-4xl">
         <Timeline>
           <TimelineItem

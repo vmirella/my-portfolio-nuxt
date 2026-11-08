@@ -12,9 +12,9 @@ export default defineNuxtConfig({
   // Configuración de la app
   app: {
     head: {
-      title: 'Virginia Contreras - Portfolio',
+      title: 'Virginia Contreras | Frontend Developer Vue.js',
       htmlAttrs: {
-        lang: 'es', // ✨ Agregar idioma
+        lang: 'es',
       },
       meta: [
         { charset: 'utf-8' },
@@ -22,9 +22,8 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
+            'Frontend Developer con más de 6 años de experiencia en Vue.js, plataformas fintech, aplicaciones empresariales, integración de APIs y evolución de productos web.',
         },
-        // ✨ Meta tags adicionales para SEO
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -53,17 +52,14 @@ export default defineNuxtConfig({
               }
             })();
           `,
-          // ✨ Cambio importante: innerHTML -> children en Nuxt 4
           tagPosition: 'head',
         },
       ],
     },
   },
 
-  // ✨ Fecha de compatibilidad actualizada
   compatibilityDate: '2025-01-26',
 
-  // Configuración de componentes
   components: [
     {
       path: '~/components',
@@ -72,7 +68,6 @@ export default defineNuxtConfig({
     },
   ],
 
-  // Módulos
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
@@ -80,19 +75,17 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
   ],
 
-  // ✨ Configuración SEO simplificada (Nuxt 4 style)
   site: {
     url:
       process.env.NUXT_PUBLIC_SITE_URL ||
       'https://virginiacontreras.vercel.app',
-    name: 'Virginia Contreras',
+    name: 'Frontend Developer Vue.js',
     description:
-      'Desarrolladora Front-End con más de 6 años de experiencia especializada en Vue.js',
+      'Frontend Developer con más de 6 años de experiencia en Vue.js, plataformas fintech, aplicaciones empresariales, integración de APIs y evolución de productos web.',
     defaultLocale: 'es',
     indexable: process.env.NODE_ENV === 'production',
   },
 
-  // Robots
   robots: {
     enabled: process.env.NODE_ENV === 'production',
     groups: [
@@ -104,13 +97,11 @@ export default defineNuxtConfig({
     ],
   },
 
-  // Sitemap
   sitemap: {
     enabled: process.env.NODE_ENV === 'production',
     strictNuxtContentPaths: false,
   },
 
-  // Runtime configuration
   runtimeConfig: {
     public: {
       siteUrl:
@@ -119,27 +110,22 @@ export default defineNuxtConfig({
     },
   },
 
-  // Devtools
   devtools: {
     enabled: process.env.NODE_ENV === 'development',
   },
 
-  // TypeScript
   typescript: {
     typeCheck: true,
     strict: true,
-    shim: false, // ✨ Recomendado para Nuxt 4
+    shim: false,
   },
 
-  // CSS
   css: ['@/assets/css/themes.css', '@/assets/css/main.css'],
 
-  // Features
   features: {
     devLogs: process.env.NODE_ENV === 'development',
   },
 
-  // ✨ Configuración de Vite optimizada
   vite: {
     build: {
       minify: 'esbuild',
@@ -152,26 +138,22 @@ export default defineNuxtConfig({
     },
   },
 
-  // ✨ Configuración de módulos específicos
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config',
     exposeConfig: false,
-    viewer: false, // ✨ Deshabilitar en producción
+    viewer: false,
   },
 
-  // ✨ Configuración de Pinia
   pinia: {
     storesDirs: ['./stores/**'],
   },
 
-  // ✨ Configuración de experimentales (opcional pero recomendado)
   experimental: {
-    payloadExtraction: true, // Mejora performance
-    componentIslands: false, // Solo si lo necesitas
+    payloadExtraction: true,
+    componentIslands: false,
   },
 
-  // ✨ Hooks útiles para debugging
   hooks: {
     'build:done': () => {
       console.log('✅ Build completado exitosamente')
